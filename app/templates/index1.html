@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Квиз-игра</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Квиз-игра</h1>
+    <form id="quiz-form">
+        <h2 id="question">{{ question['question'] }}</h2>
+        {% for option in question['options'] %}
+            <div>
+                <input type="radio" name="option" value="{{ loop.index0 }}" required>
+                {{ option }}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Ответить</button>
+    </form>
+    <h3 id="score">Очки: {{ score }}</h3>
+</div>
+
+<script>
+    $('#quiz-form').submit(function(e) {
+        e.preventDefault();
+        $.post('/answer', $(this).serialize(), function(data) {
+            if (data.score !== undefined) {
+                $('#score').text("Игра окончена! Ваш счёт: " + data.score);
+            } else {
+                $('#question').text(data.question.question);
+                $('input[type="radio"]').each(function(index) {
+                    $(this).next().text(data.question.options[index]);
+                });
+                $('#score').text("Очки: " + data.score);
+            }
+        });
+    });
+</script>
+</body>
+</html>
