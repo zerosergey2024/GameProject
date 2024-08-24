@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO, join_room, leave_room, send
+import eventlet
 import random
 
 app = Flask(__name__)
@@ -81,4 +82,4 @@ def next_question(username, room):
         socketio.emit('show_results', {'score': score, 'total': len(questions[category])}, to=room)
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True, allow_unsafe_werkzeug=True)
+    socketio.run(app, debug=True)
