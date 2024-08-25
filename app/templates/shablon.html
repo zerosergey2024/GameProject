@@ -9,10 +9,21 @@
     <!-- Подключение пользовательских стилей -->
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
 </head>
+<header>
+<!--    -->
+<!--    <img src="../static/image/logotip.jpg" class="rounded mx-auto d-block" alt="...">-->
+    <div class="mx-auto p-2" style="width: 18rem;">
+        <img src="../static/image/logot.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-text fs-4 fw-bolder" align="center">Проверьте свои знания в игре</p>
+        </div>
+    </div>
+<!--    <h1 class="text-center">Добро пожаловать на викторину!</h1>-->
+</header>
 <body>
     <div class="container text-center text-blue">
-        <h1 class="mt-5">Welcome to Quiz Game!</h1>
-        <p>Test your knowledge with our fun quiz game.</p>
+<!--        <h1 class="mt-5">Добро пожаловать на викторину!</h1>-->
+<!--        <p>Проверьте свои знания в игре.</p>-->
         <button class="btn btn-primary mt-3">Start Quiz</button>
     </div>
 
