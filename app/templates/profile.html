@@ -3,39 +3,43 @@
 {% block title %}Home Page{% endblock %}
 
 {% block content %}
-         <h1 align="center">Наши работы</h1>
-            <div class="container my-1">
+<div class="container my-1">
               <div class="row">
                 <!-- Карточка 1 -->
                 <div class="col-lg-4 col-sm-12 mb-4">
                   <div class="card h-100">
-                    <img src="../static/image/folio01.png" class="card-img-top" alt="...">
+                    <img src="../static/image/button1.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary">Подробнее</a>
+                        <h5 class="card-title">Имя</h5>
+                        <p class="card-text">Леонид</p>
+                        <button  class="btn btn-outline-success full-width-button" type="button">Изменить</button>
                     </div>
                   </div>
                 </div>
                 <!-- Карточка 2 -->
                 <div class="col-lg-4 col-sm-12 mb-4">
                   <div class="card h-100">
-                    <img src="../static/image/folio02.png" class="card-img-top" alt="...">
+                    <img src="../static/image/button5.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary">Подробнее</a>
+                        <h5 class="card-title">E-mail</h5>
+                        <p class="card-text">leoni@leoni.ru</p>
+                        <a href="#" class="btn btn-outline-success full-width-button">Изменить</a>
                     </div>
                   </div>
                 </div>
                 <!-- Карточка 3 -->
                 <div class="col-lg-4 col-sm-12 mb-4">
                   <div class="card h-100">
-                    <img src="../static/image/folio03.png" class="card-img-top" alt="...">
+                    <img src="../static/image/ava2.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary">Подробнее</a>
+                        <h5 class="card-title">Аватар</h5>
+                        <p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                        <a href='/change_name' class="btn btn-outline-success full-width-button">Изменить</a>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-        </div>
+  </div>
 
 
 {% endblock %}

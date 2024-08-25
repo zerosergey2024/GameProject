@@ -10,5 +10,9 @@ def index():
 def profile():
     return render_template('profile.html')
 
+@app.route('/change_name')
+def change_name():
+    return render_template('change_name.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
