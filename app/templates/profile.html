@@ -3,13 +3,39 @@
 {% block title %}Home Page{% endblock %}
 
 {% block content %}
- <div class="mx-auto p-2" style="width: 18rem;">
-<!--        <img src="путь/до/вашего/изображения.jpg" class="card-img-top" alt="...">-->
-        <div class="card-body d-flex flex-column justify-content-center align-items-center">
-<!--            <h5 class="card-title">Заголовок карточки</h5>-->
-<!--            <p class="card-text">Некоторый текст для описания содержимого карточки.</p>-->
-            <a href="#" class="btn btn-success">Редактировать профиль</a>
+         <h1 align="center">Наши работы</h1>
+            <div class="container my-1">
+              <div class="row">
+                <!-- Карточка 1 -->
+                <div class="col-lg-4 col-sm-12 mb-4">
+                  <div class="card h-100">
+                    <img src="../static/image/folio01.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a href="#" class="btn btn-primary">Подробнее</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Карточка 2 -->
+                <div class="col-lg-4 col-sm-12 mb-4">
+                  <div class="card h-100">
+                    <img src="../static/image/folio02.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a href="#" class="btn btn-primary">Подробнее</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Карточка 3 -->
+                <div class="col-lg-4 col-sm-12 mb-4">
+                  <div class="card h-100">
+                    <img src="../static/image/folio03.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a href="#" class="btn btn-primary">Подробнее</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
-    </div>
+
 
 {% endblock %}
