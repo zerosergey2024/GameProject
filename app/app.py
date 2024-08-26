@@ -1,6 +1,11 @@
 from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
+from flask_socketio import SocketIO, join_room, leave_room, send
+import random
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret!'
+socketio = SocketIO(app)
 
 @app.route('/')
 def index():
@@ -18,9 +23,6 @@ def change_name():
 def change_email():
     return render_template('game.html')
 
-@app.route('/change_avatar')
-def change_avatar():
-    return render_template('change_avatar.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
