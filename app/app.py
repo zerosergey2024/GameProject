@@ -14,5 +14,13 @@ def profile():
 def change_name():
     return render_template('change_name.html')
 
+@app.route('/change_email')
+def change_email():
+    return render_template('change_email.html')
+
+@app.route('/change_avatar')
+def change_avatar():
+    return render_template('change_avatar.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
