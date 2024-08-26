@@ -1,4 +1,3 @@
-from flask import Flask, render_template
 from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO, join_room, leave_room, send
 import random
