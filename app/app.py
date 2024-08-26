@@ -10,9 +10,9 @@ def index():
 def profile():
     return render_template('profile.html')
 
-@app.route('/change_name')
+@app.route('/gamecat')
 def change_name():
-    return render_template('change_name.html')
+    return render_template('gamecat.html')
 
 @app.route('/change_email')
 def change_email():
