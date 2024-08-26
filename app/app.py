@@ -14,9 +14,9 @@ def profile():
 def change_name():
     return render_template('gamecat.html')
 
-@app.route('/change_email')
+@app.route('/game')
 def change_email():
-    return render_template('change_email.html')
+    return render_template('game.html')
 
 @app.route('/change_avatar')
 def change_avatar():
