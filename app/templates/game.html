@@ -25,35 +25,27 @@
  </style>
 
 {% block content %}
-<div class="card text-center mx-auto p-2" style="width: 50rem;">
-    <div class="container text-center">
-      <div class="row row-cols-2">
-        <div class="col-sm-4">Колонка</div>
-        <div class="col-sm-4">Колонка</div>
-        <div class="col-sm-4">Колонка</div>
-      </div>
+ <div class="container my-1">
+        <div class="row">
+                <!-- Карточка 1 -->
+            <div class="col-lg-12 col-sm-12 mb-4">
+                <div class="card h-100" style="width: 54rem; height: auto;">
+                    <div class="card-body">
+                        <h5 class="card-title" align="left" id="timer" class="timer">{{ time_left }}</h5>
+                        <h5 align="center"> Столица России ?</h5>
+                        <button type="submit" class="btn btn-outline-success full-width-button my-1">Ответ 1</button>
+                        <button type="submit" class="btn btn-outline-success full-width-button my-1">Ответ 2</button>
+                        <button type="submit" class="btn btn-outline-success full-width-button my-1">Ответ 3</button>
+                        <button type="submit" class="btn btn-outline-success full-width-button my-1">Ответ 4</button>
+                        <button type="submit" class="btn btn-outline-danger full-width-button my-1">Пропустить</button>
+                    </div>
+
+                </div>
+<!--                <button type="submit" class="btn btn-outline-danger full-width-button">Пропустить</button>-->
+            </div>
+        </div>
     </div>
 
-    <div class="container text-center">
-      <div class="row row-cols-1">
-        <div class="col">Колонка</div>
-      </div>
-    </div>
-
-    <div class="container text-center">
-      <div class="row row-cols-2">
-        <div class="col">Колонка</div>
-        <div class="col">Колонка</div>
-      </div>
-    </div>
-
-    <div class="container text-center">
-      <div class="row row-cols-2">
-        <div class="col">Колонка</div>
-        <div class="col">Колонка</div>
-      </div>
-    </div>
-</div>
 <script>
     let timeLeft = 30;
     const timerElement = document.getElementById('timer');
