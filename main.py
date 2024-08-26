@@ -3,6 +3,7 @@ from tkinter import messagebox
 import random
 import time
 
+
 # Данные викторины: вопросы и ответы
 questions = {
     "history": [
