@@ -26,25 +26,22 @@
 
 {% block content %}
  <div class="container my-1">
-        <div class="row">
-                <!-- Карточка 1 -->
-            <div class="col-lg-12 col-sm-12 mb-4">
-                <div class="card h-100" style="width: 54rem; height: auto;">
-                    <div class="card-body">
-                        <h5 class="card-title" align="left" id="timer" class="timer">{{ time_left }}</h5>
-                        <h5 align="center"> Столица России ?</h5>
-                        <button type="submit" class="btn btn-outline-success full-width-button my-1">Ответ 1</button>
-                        <button type="submit" class="btn btn-outline-success full-width-button my-1">Ответ 2</button>
-                        <button type="submit" class="btn btn-outline-success full-width-button my-1">Ответ 3</button>
-                        <button type="submit" class="btn btn-outline-success full-width-button my-1">Ответ 4</button>
-                        <button type="submit" class="btn btn-outline-danger full-width-button my-1">Пропустить</button>
-                    </div>
-
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 mb-4">
+            <div class="card h-100" style="width: 54rem; height: auto;">
+                <div class="card-body">
+                    <div class="fw-bolder card-title" align="left" id="timer" class="timer">{{ time_left }}</div>
+                    <div class="fs-3 fw-bold card-title" align="center">Столица России?</div>
+                    <button type="submit" class="btn btn-outline-success fw-bolder full-width-button my-1">Москва</button>
+                    <button type="submit" class="btn btn-outline-success fw-bolder full-width-button my-1">Берлин</button>
+                    <button type="submit" class="btn btn-outline-success fw-bolder full-width-button my-1">Лондон</button>
+                    <button type="submit" class="btn btn-outline-success fw-bolder full-width-button my-1">Ташкент</button>
+                    <button type="submit" class="btn btn-outline-danger fw-bolder full-width-button my-1">Пропустить</button>
                 </div>
-<!--                <button type="submit" class="btn btn-outline-danger full-width-button">Пропустить</button>-->
             </div>
         </div>
     </div>
+ </div>
 
 <script>
     let timeLeft = 30;
