@@ -26,6 +26,9 @@ def change_email():
 def signin():
     return render_template('signin.html')
 
+@app.route('/reg')
+def reg():
+    return render_template('reg.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
