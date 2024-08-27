@@ -3,8 +3,8 @@ from flask_socketio import SocketIO, join_room, leave_room, send
 import random
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app)
+# app.config['SECRET_KEY'] = 'secret!'
+# socketio = SocketIO(app)
 
 @app.route('/')
 def index():
