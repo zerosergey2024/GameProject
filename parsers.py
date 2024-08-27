@@ -1,7 +1,6 @@
-from bs4 import BeautifulSoup
-import csv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import csv
 import time
 
 # Запускаем браузер
@@ -14,8 +13,8 @@ driver.get(url)
 # Ожидаем загрузки страницы
 time.sleep(10)
 
-# Ищем элементы с вопросами
-questions = driver.find_elements(By.CLASS_NAME, 'question-class-name')  # Замените 'question-class-name' на нужный класс
+# Ищем элементы списка с вопросами и ответами
+questions = driver.find_elements(By.CSS_SELECTOR, 'ol.more-spacing > li')
 
 # Список для хранения данных
 parsed_data = []
@@ -26,25 +25,32 @@ if not questions:
 for question in questions:
     try:
         # Извлекаем текст вопроса
-        question_text = question.find_element(By.CSS_SELECTOR, 'span[itemprop="name"]').text
+        question_text = question.text.split("\n")[0].strip()
 
         # Извлекаем возможные ответы
-        answers = question.find_elements(By.CSS_SELECTOR, 'span.answer-class-name')  # Замените 'answer-class-name' на нужный класс
+        answers_elements = question.find_elements(By.CSS_SELECTOR, 'em')
+        answers_text = []
+        correct_answer = ""
 
-        # Проверяем, что у нас есть ровно 4 ответа
-        if len(answers) == 4:
-            answer1 = answers[0].text
-            answer2 = answers[1].text
-            answer3 = answers[2].text
-            answer4 = answers[3].text
+        for em_element in answers_elements:
+            # Проверяем, если элемент содержит <strong>, это правильный ответ
+            strong_element = em_element.find_elements(By.TAG_NAME, 'strong')
+            if strong_element:
+                correct_answer = strong_element[0].text.strip()
+                # Извлекаем остальные ответы
+                answers_text.extend(em_element.text.replace(correct_answer, "").strip().split(" // "))
+            else:
+                answers_text.extend(em_element.text.strip().split(" // "))
 
-            # Предположим, что правильный ответ помечен определенным классом
-            true_answer = question.find_element(By.CSS_SELECTOR, 'span.correct-answer-class-name').text  # Замените 'correct-answer-class-name' на нужный класс
+        # Добавляем правильный ответ в список ответов
+        if correct_answer:
+            answers_text.append(correct_answer)
 
-            # Добавляем данные в список
-            parsed_data.append([question_text, answer1, answer2, answer3, answer4, true_answer])
+        # Проверяем, что у нас ровно 4 ответа и правильный ответ найден
+        if len(answers_text) == 4:
+            parsed_data.append([question_text] + answers_text)
         else:
-            print(f"Вопрос '{question_text}' не содержит 4 ответов, пропускаем его.")
+            print(f"Вопрос '{question_text}' не содержит 4 ответа или правильный ответ не найден, пропускаем его.")
 
     except Exception as e:
         print(f"Произошла ошибка при парсинге: {e}")
